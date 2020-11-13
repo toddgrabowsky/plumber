@@ -49,7 +49,7 @@ PlumberStatic <- R6Class(
           return(badRequest(res))
         }
 
-        path <- req$PATH_INFO
+        path <- httpuv::decodeURIComponent(req$PATH_INFO)
 
         if (is.null(path)){
           return(badRequest(res))
